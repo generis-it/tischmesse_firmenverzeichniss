@@ -71,13 +71,14 @@ header {
 }
 
 .article img {
-    max-height: 100px;
-    max-width: 200px;
+    max-height: 80px;
+    max-width: 180px;
+    object-fit: cover;
 }
 
 .article {
     background-color: white;
-    max-width: 310px;
+    max-width: 400px;
     box-shadow: 0 3px 10px rgb(255 255 255 / 0.2);
     border-radius: 10px;
     padding: 15px;
@@ -89,6 +90,7 @@ header {
     transition-timing-function: ease-in;
     transition-delay: 1s;
     height: 170px;
+    justify-content: space-between;
 }
 
 .card_top {
@@ -159,6 +161,7 @@ input {
     #aussteller-cards {
         display: grid;
         grid-template-columns: 1fr;
+        
 
     }
     .mobile{
