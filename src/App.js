@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react'
+import base from './api/base';
+import AusstellerCard from './AusstellerCard';
+
+
 
 function App() {
+const [aussteller, setAussteller] = useState([]);
+console.log(aussteller)
+useEffect(() => {
+  base('Aussteller').select({view: 'Grid view'})
+  .eachPage((records,fetchNextPage)=> {
+    setAussteller(records);
+    fetchNextPage();
+  })
+}
+)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header>
+        <h1>Tischmesse 2023</h1>
+        <h2>Ausstellerverzeichnis</h2>
+        <input type="text" placeholder="Suche..."/>
+    </header>
+    <main>
+      {aussteller.map((e)=> (
+        <AusstellerCard key={e.id} aussteller={e.fields}/>
+      ))}
+  </main>
     </div>
   );
 }
