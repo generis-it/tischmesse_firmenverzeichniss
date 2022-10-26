@@ -2,7 +2,10 @@
 :root {
     --primary-color: #148a7c;
 }
-
+.App {
+    max-width: 1700px;
+    margin: auto;
+}
 h3 {
     margin: 0;
     font-size: 24px;
@@ -25,12 +28,35 @@ h3,
 h4 {
     font-variant: small-caps;
 }
-
 main {
+    display: grid;
+    grid-template-columns: auto 370px;
     gap: 20px;
+    padding: 20px;
+
+}
+#aussteller-cards {
+display: grid;
+gap: 20px;
+justify-content: center;
+
+}
+#sidebar {
+    width: 350px;
+    height: 200px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 20px;
+    
+}
+@media (max-width: 800px) {
+    #sidebar {
+        display: none;
+    }
+    main{
+        grid-template-columns: auto;
+    }
+    
 }
 
 body {
@@ -51,7 +77,7 @@ header {
 
 .article {
     background-color: white;
-    min-width: 300px;
+    max-width: 310px;
     box-shadow: 0 3px 10px rgb(255 255 255 / 0.2);
     border-radius: 10px;
     padding: 15px;
@@ -62,6 +88,7 @@ header {
     align-self: start;
     transition-timing-function: ease-in;
     transition-delay: 1s;
+    height: 170px;
 }
 
 .card_top {
@@ -129,21 +156,24 @@ input {
 }
 
 @media (min-width: 740px) {
-    main {
+    #aussteller-cards {
         display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+
+    }
+    .mobile{
+        display: none !important;
     }
 }
 
 @media (min-width: 1100px) {
-    main {
-        grid-template-columns: 1fr 1fr 1fr;
+    #aussteller-cards {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (min-width: 1450px) {
-    main {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+    #aussteller-cards {
+        grid-template-columns: 1fr 1fr 1fr;
     }
 }
