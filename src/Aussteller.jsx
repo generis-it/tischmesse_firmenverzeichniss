@@ -21,7 +21,8 @@ const Aussteller = ({ id, aussteller}) => {
         {open &&   <img src={minus} alt="plus" onClick={() => setOpen(!open)}/>} 
       
         </div>
-       
+       <div className='card_content'>
+
         <div className='card_middle'>
         <img src={aussteller.Logo[0].url} alt="" />
             <div className="label_box">
@@ -46,6 +47,7 @@ const Aussteller = ({ id, aussteller}) => {
                     <p>078 826 31 08</p>
                 </div>
             </div>
+       </div>
     </div>)
 }
 export default Aussteller

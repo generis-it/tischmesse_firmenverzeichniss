@@ -78,7 +78,7 @@ header {
 
 .article {
     background-color: white;
-    max-width: 400px;
+    max-width: 80vw;
     box-shadow: 0 3px 10px rgb(255 255 255 / 0.2);
     border-radius: 10px;
     padding: 15px;
@@ -90,7 +90,7 @@ header {
     transition-timing-function: ease-in;
     transition-delay: 1s;
     min-height: 170px;
-    justify-content: space-between;
+
 }
 
 .card_top {
@@ -157,13 +157,22 @@ input {
     font-variant: small-caps;
 }
 
+.mobile {
+    max-width: 100%;
+}
+.card_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 @media (min-width: 740px) {
     #aussteller-cards {
         display: grid;
         grid-template-columns: 1fr;
         
-
     }
+    
     .mobile{
         display: none !important;
     }
