@@ -89,7 +89,7 @@ header {
     align-self: start;
     transition-timing-function: ease-in;
     transition-delay: 1s;
-    height: 170px;
+    min-height: 170px;
     justify-content: space-between;
 }
 

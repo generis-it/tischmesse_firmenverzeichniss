@@ -14,6 +14,7 @@ const [ins, setIns] = useState([]);
 
 //Ap anfragen und records in Hook speichern
 useEffect(() => {
+
   base('Aussteller').select({view: "Grid view"})
   .eachPage((records, fetchNextPage) => {
   setAussteller(records);
@@ -37,9 +38,9 @@ useEffect(() => {
 
 // let opencards = [];
 
-// const expand = (id) => {
-//     const cardMiddle = document.getElementById("card_detail_" + id);
-//     const button = document.getElementById("expand_Button_" + id);
+// const changeCard = (id) => {
+//     const cardMiddle = document.getElementById("card_detail_1");
+//     const button = document.getElementById("expand_Button_1");
 //     if (opencards.includes(id)) {
 //         console.log("gefunden");
 //         opencards.pop(id);
@@ -70,7 +71,7 @@ useEffect(() => {
       ))}
 {
       aussteller.map((e)=> (
-        <Aussteller key={e.id} aussteller={e.fields}/>
+        <Aussteller key={e.id} aussteller={e.fields} />
       ))}
       
       </div>
