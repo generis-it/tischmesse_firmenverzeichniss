@@ -73,7 +73,7 @@ header {
 .article img {
     max-height: 80px;
     max-width: 180px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .article {
