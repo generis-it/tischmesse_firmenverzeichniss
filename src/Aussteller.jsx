@@ -10,14 +10,22 @@ import telefon from './img/telefon.svg';
 import internet from './img/internet.svg';
 import { useState, useEffect } from 'react';
 
-const Aussteller = ({ id, aussteller }) => {
+const Aussteller = ({ id, aussteller, branchen }) => {
     const [open, setOpen] = useState(false);
     const [image, setImage] = useState(false);
     const [pers, setPers] = useState(false);
-
+    const [branche, setBranche] = useState("");
+    const meineBranchen= [];
+    
+    
     useEffect(() => {
-
+       
         try {
+            // debugger;
+            // meineBranchen = branchen.filter((e) => e.id == aussteller.branche[0]);
+            // console.log("meineBranchen:"+meineBranchen);
+            console.log(branchen);
+            //setBranche(branchen.find(e => e.id == aussteller.branche));
             const url = aussteller.Logo[0].url;
             setImage(true);
             const person = aussteller.Person2;
