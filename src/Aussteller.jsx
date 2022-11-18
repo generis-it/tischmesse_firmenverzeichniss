@@ -9,27 +9,19 @@ import person2 from './img/person2.svg';
 import telefon from './img/telefon.svg';
 import internet from './img/internet.svg';
 import { useState, useEffect } from 'react';
+import BranchenLabel from './BranchenLabel';
 
-const Aussteller = ({ id, aussteller, branchen }) => {
+const Aussteller = ({ id, aussteller }) => {
     const [open, setOpen] = useState(false);
     const [image, setImage] = useState(false);
     const [pers, setPers] = useState(false);
-    const [branche, setBranche] = useState("");
-    const meineBranchen= [];
-    
-    
+
     useEffect(() => {
-       
         try {
-            // debugger;
-            // meineBranchen = branchen.filter((e) => e.id == aussteller.branche[0]);
-            // console.log("meineBranchen:"+meineBranchen);
-            console.log(branchen);
-            //setBranche(branchen.find(e => e.id == aussteller.branche));
             const url = aussteller.Logo[0].url;
             setImage(true);
             const person = aussteller.Person2;
-            setPers(person.length>=2);
+            setPers(person.length >= 2);
 
         } catch (error) {
             console.log("bild von " + { aussteller } + "nicht gefunden")
@@ -51,16 +43,13 @@ const Aussteller = ({ id, aussteller, branchen }) => {
                     <h3>{aussteller.Firmenname}</h3>
                     <div className='card_top_right'>
                         <h4>Tisch Nr. {aussteller.Tischnummer}</h4>
-                        {!open && <img src={plus} alt="plus" onClick={() => setOpen(!open)} />}
-                        {open && <img src={minus} alt="plus" onClick={() => setOpen(!open)} />}
+
                     </div>
 
                 </div>
                 <div className='card_middle'>
                     {image && <img src={aussteller.Logo[0].url} alt="" />}
-                    <div className="label_box">
-                        <div className="tag">{aussteller.branche}</div>
-                    </div>
+
                 </div>
             </div>
             <div className='card_content'>
@@ -76,8 +65,8 @@ const Aussteller = ({ id, aussteller, branchen }) => {
                         <p>{aussteller.Person1} </p>
                     </div>
                     {pers && <div className="icon_text" >
-                        <img src={person2} alt="person"  />
-                        <p  className='pers2'>{aussteller.Person2} </p>
+                        <img src={person2} alt="person" />
+                        <p className='pers2'>{aussteller.Person2} </p>
                     </div>}
 
                     <div className="icon_text">
@@ -89,7 +78,15 @@ const Aussteller = ({ id, aussteller, branchen }) => {
                         </p>
 
                     </div>
-                
+                    <div className="label_box">
+                        {
+                            aussteller.branche.map((e) => (
+                                <BranchenLabel key={e.id} label={e} />
+                            ))
+
+                        }
+                    </div>
+
 
 
                 </>
@@ -98,7 +95,7 @@ const Aussteller = ({ id, aussteller, branchen }) => {
 
 
                 <div className="card_bottom">
-                <div className="icon_text">
+                    <div className="icon_text">
                         <img src={internet} alt="internet" />
                         <a href={aussteller.url} target="_blank"><p>{aussteller.website}</p></a>
                     </div>
@@ -106,6 +103,8 @@ const Aussteller = ({ id, aussteller, branchen }) => {
                         <img src={telefon} alt="plus" />
                         <p>{aussteller.telefon}</p>
                     </div>
+                    {!open && <img src={plus} alt="plus" onClick={() => setOpen(!open)} />}
+                        {open && <img src={minus} alt="plus" onClick={() => setOpen(!open)} />}
                 </div>
             </div>
         </div>)

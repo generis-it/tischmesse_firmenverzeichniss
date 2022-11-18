@@ -118,8 +118,7 @@ header {
 
 .label_box {
     display: flex;
-    justify-content: end;
-    flex-direction: column;
+    flex-direction: row;
     gap: 3px;
 }
 
@@ -139,11 +138,21 @@ header {
     display: flex;
     justify-content: space-between;
 }
-.branchen-filter {
+.filter {
     display: flex;
     gap: 1rem;
 
 }
+.filter-col{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.filter-col label{
+    padding-bottom: 0.5rem;
+}
+
+
 
 .icon_text {
     display: flex;
@@ -152,7 +161,7 @@ header {
 }
 .card_top_right {
     display: flex;
-    align-items: center;
+    align-items: top;
     gap: 10px;
 
 }
@@ -172,14 +181,18 @@ header {
     display: none;
 }
 
-input {
+input, select{
     border: 1px solid black;
     background-color: transparent;
     color: black;
     border-radius: 10px;
     height: 40px;
-    width: 300px;
-    text-align: center;
+
+    padding-left: 0.5rem;
+    text-align: left;
+}
+select{
+    
 }
 
 .mobile {
