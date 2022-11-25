@@ -35,14 +35,14 @@ const Aussteller = ({ id, aussteller }) => {
     };
 
     return (
-        <div className="article" style={styles}>
+        <div className="article shuffle" style={styles}>
             <div className=' card_content_top'>
 
 
                 <div className="card_top" >
                     <h3>{aussteller.Firmenname}</h3>
                     <div className='card_top_right'>
-                        <h4>Tisch Nr. {aussteller.Tischnummer}</h4>
+                        <h4>Tisch <br></br>Nr. {aussteller.Tischnummer}</h4>
 
                     </div>
 
@@ -73,6 +73,10 @@ const Aussteller = ({ id, aussteller }) => {
                         <img src={map} alt="plus" />
                         <p>{aussteller.ort}</p>
                     </div>
+                    <div className="icon_text">
+                        <img src={telefon} alt="plus" />
+                        <p>{aussteller.telefon}</p>
+                    </div>
                     <div id={id} className="card_detail_1">
                         <p>{aussteller.Beschreibung}
                         </p>
@@ -99,10 +103,7 @@ const Aussteller = ({ id, aussteller }) => {
                         <img src={internet} alt="internet" />
                         <a href={aussteller.url} target="_blank"><p>{aussteller.website}</p></a>
                     </div>
-                    <div className="icon_text">
-                        <img src={telefon} alt="plus" />
-                        <p>{aussteller.telefon}</p>
-                    </div>
+                    
                     {!open && <img src={plus} alt="plus" onClick={() => setOpen(!open)} />}
                         {open && <img src={minus} alt="plus" onClick={() => setOpen(!open)} />}
                 </div>

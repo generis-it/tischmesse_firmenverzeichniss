@@ -26,6 +26,7 @@ function App() {
   useEffect(() => {
     base('Inserate').select({ view: "Grid view" })
       .eachPage((records, fetchNextPage) => {
+        records.sort( ()=>Math.random()-0.5 );
         setIns(records);
         fetchNextPage();
       });
@@ -45,21 +46,46 @@ function App() {
     setfilterBranche("");
   }
 
+  const content = () => {
+    let inhalt = [];
+
+    inhalt.push(aussteller.map((e) => (
+      <Aussteller key={e.id} aussteller={e.fields}/>
+    )))
+
+    for (let i =0; i<ins.length; i++){
+      const verschiebung = 3;
+      const insertpos = i *3+verschiebung;
+        inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} />)
+    console.log(inhalt);
+    }
+
+    // for (let i =3; i<inhalt[0].length; i+=4){
+    //   for (let j =0; j<ins.length; j++){
+    //     inhalt[0].splice(i,0,<Inserat screen="mobile shuffle" bild={ins[j].fields.Inserat[0].url} />)
+        
+    //   }
+    // console.log(inhalt);
+    // }
+
+    return inhalt;
+
+  }
+
   return (
     <div className="App">
       <header>
         <h1>Tischmesse 2023</h1>
-        <h2>Firmenverzeichnis</h2>
         <div className='filter'>
-          <div className='filter-col'>
-            <label>Suchen sie eine Firma:</label>
+          <div className='filter-col' id="suche">
+            <label>Suchen Sie eine Firma:</label>
             <input type="text" placeholder="Ihr Suchtext..." onChange={setFilter} />
 
           </div>
-          <div className='filter-col'>
+          <div className='filter-col' id="auswahl">
             <label for="branchen">Filtern nach Branche:</label>
             <select name="branchen" id="brachen" onChange={setBranchenFilter}>
-              <option value="">Branche wählen</option>
+              <option value="">---</option>
               <option value="EDV">EDV</option>
               <option value="Industrie">Industrie</option>
               <option value="Medien">Medien</option>
@@ -67,7 +93,7 @@ function App() {
             </select>
           </div>
 
-          <div className='filter-col'>
+          <div className='filter-col' id="clean">
 
           <label for="loeschen">_</label>
           <input type="button" value="Filter löschen" onClick={clearFilter} />
@@ -78,14 +104,9 @@ function App() {
     <main>
       <div id="aussteller-cards">
         {
-          aussteller.map((e) => (
-            <Aussteller key={e.id} aussteller={e.fields} />
-          ))
+          content()
         }
-        {
-          ins.map((e) => (
-            <Inserat screen="mobile" bild={e.fields.Inserat[0].url} />
-          ))}
+        
       </div>
       <div id="sidebar">
         {ins.map((e, index) => (
