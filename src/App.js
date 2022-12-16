@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 
 import Aussteller from './Aussteller';
 import Inserat from './Inserat';
+import Delete from './img/delete.svg';
+import Logo from './img/logo_sh.jpeg';
 
 function App() {
   var Airtable = require('airtable');
@@ -57,16 +59,7 @@ function App() {
       const verschiebung = 3;
       const insertpos = i *3+verschiebung;
         inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} />)
-    console.log(inhalt);
     }
-
-    // for (let i =3; i<inhalt[0].length; i+=4){
-    //   for (let j =0; j<ins.length; j++){
-    //     inhalt[0].splice(i,0,<Inserat screen="mobile shuffle" bild={ins[j].fields.Inserat[0].url} />)
-        
-    //   }
-    // console.log(inhalt);
-    // }
 
     return inhalt;
 
@@ -75,17 +68,17 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Tischmesse 2023</h1>
+        <img src={Logo} alt="Logo" id="sh-logo" />
+        <h1>Schaffhauser Tischmesse 2023</h1>
         <div className='filter'>
           <div className='filter-col' id="suche">
             <label>Suchen Sie eine Firma:</label>
-            <input type="text" placeholder="Ihr Suchtext..." onChange={setFilter} />
+            <input type="text" value={filterString} placeholder="Ihr Suchtext..." onChange={setFilter} />
 
           </div>
           <div className='filter-col' id="auswahl">
-            <label for="branchen">Filtern nach Branche:</label>
-            <select name="branchen" id="brachen" onChange={setBranchenFilter}>
-              <option value="">---</option>
+            <label for="branchen">Branchenfilter</label>
+            <select name="branchen" id="brachen" value={filterBranche} onChange={setBranchenFilter}>
               <option value="EDV">EDV</option>
               <option value="Industrie">Industrie</option>
               <option value="Medien">Medien</option>
@@ -95,8 +88,9 @@ function App() {
 
           <div className='filter-col' id="clean">
 
-          <label for="loeschen">_</label>
-          <input type="button" value="Filter löschen" onClick={clearFilter} />
+          <label for="delete-button"></label>
+
+          <input type="image" id="delete-button" name="delete-button" src={Delete} onClick={clearFilter} />
           </div>
         </div>
 
