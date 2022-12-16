@@ -79,6 +79,7 @@ function App() {
           <div className='filter-col' id="auswahl">
             <label for="branchen">Branchenfilter</label>
             <select name="branchen" id="brachen" value={filterBranche} onChange={setBranchenFilter}>
+            <option value="">---</option>
               <option value="EDV">EDV</option>
               <option value="Industrie">Industrie</option>
               <option value="Medien">Medien</option>
