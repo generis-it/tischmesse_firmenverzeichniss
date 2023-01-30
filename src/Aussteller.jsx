@@ -14,17 +14,20 @@ const Aussteller = ({ id, aussteller }) => {
     const [open, setOpen] = useState(false);
     const [image, setImage] = useState(false);
     const [pers, setPers] = useState(false);
-    console.log(aussteller)
+
 
     useEffect(() => {
         try {
             const url = aussteller.Logo[0].url;
             setImage(true);
-            const person = aussteller.Person2;
-            setPers(person.length >= 2);
-
         } catch (error) {
             console.log("bild von " + { aussteller } + "nicht gefunden")
+        }
+        try {
+            const person = aussteller.Person2;
+            setPers(person.length >= 2);
+        } catch (error) {
+            console.log({ aussteller } + " Hat nur 1 Person registriert")
         }
 
     }, []);
