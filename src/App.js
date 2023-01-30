@@ -14,6 +14,7 @@ function App() {
   const [ins, setIns] = useState([]);
   const [filterString, setfilterString] = useState("");
   const [filterBranche, setfilterBranche] = useState("");
+  const [branchen, setBranchen] = useState([]);
 
   const suchstring = 'AND(SEARCH("' + filterString.toLowerCase() + '", LOWER({Firmenname})), SEARCH("' + filterBranche.toLowerCase() + '", LOWER({Branche})))';
   useEffect(() => {
@@ -22,8 +23,24 @@ function App() {
         setAussteller(records);
         fetchNextPage();
       });
-
   }, [filterString, filterBranche]);
+
+  //Branchenfilter
+  useEffect(() => {
+    base('Aussteller').select()
+      .eachPage((records, fetchNextPage) => {
+        let bra = []
+        records.forEach((rec) => {
+          bra = bra.concat(rec.fields.branche.filter(item => bra.indexOf(item) < 0));
+        }
+        );
+        const sorted = Array.from(bra).sort();
+        setBranchen(sorted);
+        fetchNextPage();
+      });
+
+  }, []);
+
 
   useEffect(() => {
     base('Inserate').select({ view: "Grid view" })
@@ -80,10 +97,11 @@ function App() {
             <label for="branchen">Branchenfilter</label>
             <select name="branchen" id="brachen" value={filterBranche} onChange={setBranchenFilter}>
             <option value="">---</option>
-              <option value="EDV">EDV</option>
-              <option value="Industrie">Industrie</option>
-              <option value="Medien">Medien</option>
-              <option value="Finanzen">Finanzen</option>
+            {
+              branchen.map((e) => (
+                <option value={e}>{e}</option>
+              ))
+            }
             </select>
           </div>
 

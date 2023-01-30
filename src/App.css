@@ -229,6 +229,7 @@ input, select{
 }
 select {
     height: 42px;
+    max-width: 100px;
 }
 option{
     background-color: #d6d6d6;
