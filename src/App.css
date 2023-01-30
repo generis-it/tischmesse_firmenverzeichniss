@@ -128,6 +128,7 @@ header {
     display: flex;
     flex-direction: row;
     gap: 3px;
+    flex-wrap: wrap;
 }
 
 .icon_text >a{
@@ -135,6 +136,10 @@ header {
     color: black;
 
 }
+.icon_text >a >p{
+    white-space: nowrap;
+}
+
 .tag {
     background-color: grey;
     padding: 5px 10px;
@@ -229,14 +234,12 @@ option{
     background-color: #d6d6d6;
 }
 
-.mobile {
+.ins-img {
     max-width: 100%;
     box-shadow: 0 3px 10px rgb(100, 100, 100);
+    max-width: 100%;
 }
-.desktop{
-    box-shadow: 0 3px 10px rgb(100, 100, 100);
-    object-fit: contain;
-}
+
 
 .card_content {
     display: flex;
@@ -250,6 +253,10 @@ option{
     flex-direction: column;
     justify-content: space-between;
 
+}
+.mobile{
+    display: flex;
+    justify-content: center;
 }
 
 @media (min-width: 740px) {

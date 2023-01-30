@@ -2,7 +2,6 @@
 import React from 'react';
 import plus from './img/plus.svg';
 import minus from './img/minus.svg';
-import angebot from './img/angebot.svg';
 import map from './img/map.svg';
 import person from './img/person.svg';
 import person2 from './img/person2.svg';
@@ -15,6 +14,7 @@ const Aussteller = ({ id, aussteller }) => {
     const [open, setOpen] = useState(false);
     const [image, setImage] = useState(false);
     const [pers, setPers] = useState(false);
+    console.log(aussteller)
 
     useEffect(() => {
         try {
@@ -33,6 +33,16 @@ const Aussteller = ({ id, aussteller }) => {
     let styles = {
         borderColor: aussteller.Farbe,
     };
+    
+    const beschreibung = () => {
+        let beschreibungsText = aussteller.Beschreibung;
+        let array = beschreibungsText.split("\n");
+        let inhalt = [];
+        inhalt.push(array.map((e) => (
+            <p>{e}</p>
+          )))
+        return inhalt;
+    }
 
     return (
         <div className="article shuffle" style={styles}>
@@ -57,10 +67,6 @@ const Aussteller = ({ id, aussteller }) => {
 
                 {open && <>
                     <div className="icon_text">
-                        <img src={angebot} alt="angebot" />
-                        <p>{aussteller.Angebot}</p>
-                    </div>
-                    <div className="icon_text">
                         <img src={person} alt="person" />
                         <p>{aussteller.Person1} </p>
                     </div>
@@ -78,8 +84,8 @@ const Aussteller = ({ id, aussteller }) => {
                         <p>{aussteller.telefon}</p>
                     </div>
                     <div id={id} className="card_detail_1">
-                        <p>{aussteller.Beschreibung}
-                        </p>
+                         {beschreibung()}
+                        
 
                     </div>
                     <div className="label_box">

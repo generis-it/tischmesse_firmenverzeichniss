@@ -58,7 +58,7 @@ function App() {
     for (let i =0; i<ins.length; i++){
       const verschiebung = 3;
       const insertpos = i *3+verschiebung;
-        inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} />)
+        inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} link={ins[i].fields.url}/>)
     }
 
     return inhalt;
@@ -105,7 +105,7 @@ function App() {
       </div>
       <div id="sidebar">
         {ins.map((e, index) => (
-          <Inserat screen="desktop" key={e.id} bild={e.fields.Inserat[0].url} />
+          <Inserat screen="desktop" key={e.id} bild={e.fields.Inserat[0].url} link={e.fields.url} />
         ))}
 
       </div>
