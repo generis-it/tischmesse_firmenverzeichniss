@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react'
 
 import Aussteller from './Aussteller';
+import Footer from './Footer';
 import Inserat from './Inserat';
 import Delete from './img/delete.svg';
 import Logo from './img/logo_sh.jpeg';
@@ -128,6 +129,7 @@ function App() {
 
       </div>
     </main>
+    <Footer/>
     </div >
   );
 }
