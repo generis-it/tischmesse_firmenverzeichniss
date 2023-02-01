@@ -272,7 +272,7 @@ footer >a {
 .footer_logos{
     display: grid;
     grid-template-columns: 
-    repeat(5, 200px);
+    repeat(auto-fit, 200px);
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
@@ -281,7 +281,7 @@ footer >a {
 .footer_logos_medien{
     display: grid;
     grid-template-columns: 
-    repeat(2, 200px);
+    repeat(auto-fit, 200px);
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
