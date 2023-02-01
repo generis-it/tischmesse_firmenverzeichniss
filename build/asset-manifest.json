@@ -1,8 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.33c0e63f.css",
-    "main.js": "/static/js/main.3d626fde.js",
+    "main.css": "/static/css/main.887df5fa.css",
+    "main.js": "/static/js/main.1da11546.js",
     "static/js/787.003bce81.chunk.js": "/static/js/787.003bce81.chunk.js",
+    "static/media/IVS-Logo-mit-Text-d8ed2d70.jpeg": "/static/media/IVS-Logo-mit-Text-d8ed2d70.094b3a46d465efa9456e.jpeg",
+    "static/media/Radio-Munot-Logo-0fb055c8.png": "/static/media/Radio-Munot-Logo-0fb055c8.ba92d8ed2f1dd9a45a86.png",
+    "static/media/Logo_KGV_kurz-35de938a.jpeg": "/static/media/Logo_KGV_kurz-35de938a.f182cb6a7ff20c29c3d7.jpeg",
+    "static/media/Stadt_Schaffhausen4-f18f22bd.png": "/static/media/Stadt_Schaffhausen4-f18f22bd.bcd9a78b5d0e088e3d5a.png",
     "static/media/person.svg": "/static/media/person.ded9c01c8946396a21b03583471cb777.svg",
     "static/media/telefon.svg": "/static/media/telefon.378ef703de6875205a4fd00cc5fa4efb.svg",
     "static/media/plus.svg": "/static/media/plus.ae2d25054d16d2e87c802be98c869acd.svg",
@@ -12,12 +16,12 @@
     "static/media/internet.svg": "/static/media/internet.128d4485f837e83dc27e7c3d142fffa2.svg",
     "index.html": "/index.html",
     "static/media/person2.svg": "/static/media/person2.b7fb230333f186f9e1a0ce521f5ef21b.svg",
-    "main.33c0e63f.css.map": "/static/css/main.33c0e63f.css.map",
-    "main.3d626fde.js.map": "/static/js/main.3d626fde.js.map",
+    "main.887df5fa.css.map": "/static/css/main.887df5fa.css.map",
+    "main.1da11546.js.map": "/static/js/main.1da11546.js.map",
     "787.003bce81.chunk.js.map": "/static/js/787.003bce81.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.33c0e63f.css",
-    "static/js/main.3d626fde.js"
+    "static/css/main.887df5fa.css",
+    "static/js/main.1da11546.js"
   ]
 }

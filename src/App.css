@@ -268,6 +268,31 @@ footer >a {
     color: black;
 }
 
+.footer_logos{
+    display: grid;
+    grid-template-columns: 
+    repeat(5, 200px);
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+.footer_logos_medien{
+    display: grid;
+    grid-template-columns: 
+    repeat(2, 200px);
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    
+}
+.footer_logos>img, .footer_logos_medien>img{
+object-fit: contain;
+width: 100%;
+justify-self: center;
+}
+
+
 @media (min-width: 740px) {
     #aussteller-cards {
         display: grid;
