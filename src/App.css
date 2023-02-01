@@ -3,10 +3,7 @@
 :root {
     --primary-color: #148a7c;
 }
-.App {
-    max-width: 1700px;
-    margin: auto;
-}
+
 h3 {
     margin: 0;
     font-size: 18px;
@@ -30,6 +27,8 @@ main {
     grid-template-columns: auto 370px;
     gap: 20px;
     padding: 20px;
+    max-width: 1700px;
+    margin: auto;
 
 }
 #aussteller-cards {
@@ -261,8 +260,10 @@ option{
 }
 footer {
     background: darkgray;
-    padding: 1rem;
+    padding: 3rem;
     text-align: center;
+    margin-top: 2rem;
+
 }
 footer >a {
     color: black;
