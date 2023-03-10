@@ -6,6 +6,8 @@ import Footer from './Footer';
 import Inserat from './Inserat';
 import Delete from './img/delete.svg';
 import Logo from './img/logo_sh.jpeg';
+import Loading from './img/bock_loading.gif';
+//import LoadingSVG from './img/bock_loading.svg';
 
 function App() {
   var Airtable = require('airtable');
@@ -16,6 +18,7 @@ function App() {
   const [filterString, setfilterString] = useState("");
   const [filterBranche, setfilterBranche] = useState("");
   const [branchen, setBranchen] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const suchstring = 'AND(SEARCH("' + filterString.toLowerCase() + '", LOWER({Firmenname})), SEARCH("' + filterBranche.toLowerCase() + '", LOWER({Branche})))';
   useEffect(() => {
@@ -24,6 +27,7 @@ function App() {
         setAussteller(records);
         fetchNextPage();
       });
+      setLoading(false);
   }, [filterString, filterBranche]);
 
   //Branchenfilter
@@ -88,6 +92,7 @@ function App() {
       <header>
         <img src={Logo} alt="Logo" id="sh-logo" />
         <h1>Schaffhauser Tischmesse 2023</h1>
+       
         <div className='filter'>
           <div className='filter-col' id="suche">
             <label>Suchen Sie eine Firma:</label>
@@ -128,6 +133,10 @@ function App() {
         ))}
 
       </div>
+      {loading && <div className='loading'>
+        <img src={Loading} alt="Loading Image" className="loading-image" />
+        <h2>Firmen werden geladen...</h2>
+        </div>}
     </main>
     <Footer/>
     </div >

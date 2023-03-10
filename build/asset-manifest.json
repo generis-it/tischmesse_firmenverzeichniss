@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.4b93a4aa.css",
+    "main.css": "/static/css/main.21c4b263.css",
     "main.js": "/static/js/main.1da11546.js",
     "static/js/787.003bce81.chunk.js": "/static/js/787.003bce81.chunk.js",
     "static/media/IVS-Logo-mit-Text-d8ed2d70.jpeg": "/static/media/IVS-Logo-mit-Text-d8ed2d70.094b3a46d465efa9456e.jpeg",
@@ -16,12 +16,12 @@
     "static/media/internet.svg": "/static/media/internet.128d4485f837e83dc27e7c3d142fffa2.svg",
     "index.html": "/index.html",
     "static/media/person2.svg": "/static/media/person2.b7fb230333f186f9e1a0ce521f5ef21b.svg",
-    "main.4b93a4aa.css.map": "/static/css/main.4b93a4aa.css.map",
+    "main.21c4b263.css.map": "/static/css/main.21c4b263.css.map",
     "main.1da11546.js.map": "/static/js/main.1da11546.js.map",
     "787.003bce81.chunk.js.map": "/static/js/787.003bce81.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b93a4aa.css",
+    "static/css/main.21c4b263.css",
     "static/js/main.1da11546.js"
   ]
 }

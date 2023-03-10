@@ -45,7 +45,6 @@ justify-content: center;
     }
 #sidebar {
     width: 350px;
-    height: 200px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -65,6 +64,16 @@ body {
     background-color: #d6d6d6;
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
+}
+.loading-image {
+    height: 200px;
+    width: 200px;
+}
+.loading {
+    width: 100%;
+    object-fit: contain;
+    text-align: center;
+    padding-bottom: 30px;
 }
 
 header {
@@ -259,7 +268,7 @@ option{
     justify-content: center;
 }
 footer {
-    background: darkgray;
+    background: white;
     padding: 3rem;
     text-align: center;
     margin-top: 2rem;
@@ -298,7 +307,7 @@ justify-self: center;
     #aussteller-cards {
         display: grid;
         grid-template-columns: 1fr;
-        
+  
     }
     
     .mobile{
@@ -309,11 +318,13 @@ justify-self: center;
 @media (min-width: 1100px) {
     #aussteller-cards {
         grid-template-columns: 1fr 1fr;
+        align-content: start;
     }
 }
 
 @media (min-width: 1450px) {
     #aussteller-cards {
         grid-template-columns: 1fr 1fr 1fr;
+        align-content: start;
     }
 }
