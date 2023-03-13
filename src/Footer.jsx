@@ -15,7 +15,7 @@ const Footer = () => {
     return (
         <footer>
             <h3>Partner</h3>
-            <div class="footer_logos">
+            <div className="footer_logos">
                 <img src={SHLogo} alt="SH Logo" />
                 <img src={IVS} alt="IVS" />
                 <img src={Gewerbeverband} alt="Gewerbeverband" />
@@ -23,7 +23,7 @@ const Footer = () => {
                 <img src={GF} alt="Georg Fischer" />
             </div>
             <h3>Medienpartner</h3>
-            <div class="footer_logos_medien">
+            <div className="footer_logos_medien">
                 <img src={SHN} alt="Radio Munot" />
                 <img src={RadioMunot} alt="Radio Munot" />
     

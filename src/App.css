@@ -307,7 +307,7 @@ justify-self: center;
     #aussteller-cards {
         display: grid;
         grid-template-columns: 1fr;
-  
+  align-content: start;
     }
     
     .mobile{

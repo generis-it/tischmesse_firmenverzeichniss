@@ -1,27 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.21c4b263.css",
-    "main.js": "/static/js/main.1da11546.js",
+    "main.css": "/static/css/main.4e360ec8.css",
+    "main.js": "/static/js/main.c56e38c4.js",
     "static/js/787.003bce81.chunk.js": "/static/js/787.003bce81.chunk.js",
+    "static/media/bock_loading.gif": "/static/media/bock_loading.1423cc1aaa2700ebd99f.gif",
     "static/media/IVS-Logo-mit-Text-d8ed2d70.jpeg": "/static/media/IVS-Logo-mit-Text-d8ed2d70.094b3a46d465efa9456e.jpeg",
     "static/media/Radio-Munot-Logo-0fb055c8.png": "/static/media/Radio-Munot-Logo-0fb055c8.ba92d8ed2f1dd9a45a86.png",
     "static/media/Logo_KGV_kurz-35de938a.jpeg": "/static/media/Logo_KGV_kurz-35de938a.f182cb6a7ff20c29c3d7.jpeg",
     "static/media/Stadt_Schaffhausen4-f18f22bd.png": "/static/media/Stadt_Schaffhausen4-f18f22bd.bcd9a78b5d0e088e3d5a.png",
-    "static/media/person.svg": "/static/media/person.ded9c01c8946396a21b03583471cb777.svg",
-    "static/media/telefon.svg": "/static/media/telefon.378ef703de6875205a4fd00cc5fa4efb.svg",
+    "static/media/person.svg": "/static/media/person.c6db54b4c83126772ebdc0c0f2d236a6.svg",
+    "static/media/telefon.svg": "/static/media/telefon.bf48048cdddc6bec3954c4a980852b04.svg",
     "static/media/plus.svg": "/static/media/plus.ae2d25054d16d2e87c802be98c869acd.svg",
-    "static/media/map.svg": "/static/media/map.28212d624ae831569fa65cee294f48cd.svg",
-    "static/media/delete.svg": "/static/media/delete.cab48907c4780327571648b0f93b1499.svg",
-    "static/media/minus.svg": "/static/media/minus.f2d08645d97c8a7ef7f6aa8616330f2c.svg",
-    "static/media/internet.svg": "/static/media/internet.128d4485f837e83dc27e7c3d142fffa2.svg",
+    "static/media/map.svg": "/static/media/map.d54a784697b7473345652fd391f6d22b.svg",
+    "static/media/delete.svg": "/static/media/delete.c0a7410d51197259d1522c31cce706ed.svg",
+    "static/media/minus.svg": "/static/media/minus.c1c94a4bb746a803789a5e3d1fbeec85.svg",
+    "static/media/internet.svg": "/static/media/internet.acb2b71f7c9cfca8ebecda30e08cf310.svg",
     "index.html": "/index.html",
-    "static/media/person2.svg": "/static/media/person2.b7fb230333f186f9e1a0ce521f5ef21b.svg",
-    "main.21c4b263.css.map": "/static/css/main.21c4b263.css.map",
-    "main.1da11546.js.map": "/static/js/main.1da11546.js.map",
+    "static/media/person2.svg": "/static/media/person2.bfea9437056908943df1129eab4d03bd.svg",
+    "main.4e360ec8.css.map": "/static/css/main.4e360ec8.css.map",
+    "main.c56e38c4.js.map": "/static/js/main.c56e38c4.js.map",
     "787.003bce81.chunk.js.map": "/static/js/787.003bce81.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.21c4b263.css",
-    "static/js/main.1da11546.js"
+    "static/css/main.4e360ec8.css",
+    "static/js/main.c56e38c4.js"
   ]
 }

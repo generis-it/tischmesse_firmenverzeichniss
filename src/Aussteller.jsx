@@ -21,13 +21,13 @@ const Aussteller = ({ id, aussteller }) => {
             const url = aussteller.Logo[0].url;
             setImage(true);
         } catch (error) {
-            console.log("bild von " + { aussteller } + "nicht gefunden")
+
         }
         try {
             const person = aussteller.Person2;
             setPers(person.length >= 2);
         } catch (error) {
-            console.log({ aussteller } + " Hat nur 1 Person registriert")
+
         }
 
     }, []);

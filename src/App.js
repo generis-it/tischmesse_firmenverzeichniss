@@ -12,28 +12,42 @@ import Loading from './img/bock_loading.gif';
 function App() {
   var Airtable = require('airtable');
   var base = new Airtable({ apiKey: 'keyigRrBXDdtbuUQ3' }).base('appShZ2e3RAuNGWGt');
-
-  const [aussteller, setAussteller] = useState([]);
-  const [ins, setIns] = useState([]);
   const [filterString, setfilterString] = useState("");
   const [filterBranche, setfilterBranche] = useState("");
+  const [aussteller, setAussteller] = useState([]);
+  const [ins, setIns] = useState([]);
   const [branchen, setBranchen] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const suchstring = 'AND(SEARCH("' + filterString.toLowerCase() + '", LOWER({Firmenname})), SEARCH("' + filterBranche.toLowerCase() + '", LOWER({Branche})))';
+  
   useEffect(() => {
-    base('Aussteller').select({ filterByFormula: suchstring, view: "Grid view" })
+
+    base('Aussteller').select({ 
+      filterByFormula: suchstring, 
+      view: "Grid view" })
       .eachPage((records, fetchNextPage) => {
-        setAussteller(records);
+        if  (filterString.length > 0 || filterBranche.length > 0) {
+          setAussteller([]);
+          console.log("auf 0")
+        }
+        setAussteller(state => [...state, ...records]);
         fetchNextPage();
+        
       });
       setLoading(false);
+      setTimeout(() => {
+      
+      }, "1000");
+
   }, [filterString, filterBranche]);
+
+
 
   //Branchenfilter
   useEffect(() => {
     base('Aussteller').select()
-      .eachPage((records, fetchNextPage) => {
+      .eachPage((records) => {
         let bra = []
         records.forEach((rec) => {
           bra = bra.concat(rec.fields.branche.filter(item => bra.indexOf(item) < 0));
@@ -41,7 +55,6 @@ function App() {
         );
         const sorted = Array.from(bra).sort();
         setBranchen(sorted);
-        fetchNextPage();
       });
 
   }, []);
@@ -59,13 +72,15 @@ function App() {
 
 
   const setFilter = (filter) => {
+    setAussteller([]);
     setfilterString(filter.target.value);
   }
   const setBranchenFilter = (filter) => {
-    console.log(filter);
+    setAussteller([]);
     setfilterBranche(filter.target.value);
   }
   const clearFilter = () => {
+    setAussteller([]);
     setfilterString("");
     setfilterBranche("");
   }
