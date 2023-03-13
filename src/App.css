@@ -31,6 +31,7 @@ main {
     margin: auto;
 
 }
+
 #aussteller-cards {
 display: grid;
 gap: 20px;
@@ -58,6 +59,16 @@ justify-content: center;
         grid-template-columns: auto;
     }
     
+}
+.scrollbar{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 0.2rem;
 }
 
 body {

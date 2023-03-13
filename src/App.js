@@ -88,6 +88,7 @@ function App() {
   }
 
   return (
+    <>
     <div className="App">
       <header>
         <img src={Logo} alt="Logo" id="sh-logo" />
@@ -125,21 +126,35 @@ function App() {
         {
           content()
         }
-        
+        {loading && <div className='loading'>
+        <img src={Loading} alt="Loading Image" className="loading-image" />
+        <h2>Firmen werden geladen...</h2>
+        </div>}
       </div>
       <div id="sidebar">
         {ins.map((e, index) => (
           <Inserat screen="desktop" key={e.id} bild={e.fields.Inserat[0].url} link={e.fields.url} />
         ))}
 
+      
       </div>
-      {loading && <div className='loading'>
-        <img src={Loading} alt="Loading Image" className="loading-image" />
-        <h2>Firmen werden geladen...</h2>
-        </div>}
+      
+      
     </main>
+ 
     <Footer/>
     </div >
+   <div className="scrollbar">
+    <a href="#a">A</a>
+    <a href="#a">B</a>
+    <a href="#a">C</a>
+    <a href="#a">D</a>
+    <a href="#a">D</a>
+    <a href="#a">F</a>
+    <a href="#a">G</a>
+
+   </div>
+   </>
   );
 }
 
