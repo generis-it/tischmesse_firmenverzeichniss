@@ -97,7 +97,9 @@ function App() {
       const insertpos = i *3+verschiebung;
         inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} link={ins[i].fields.url}/>)
     }
-
+    if (aussteller.length == 0) { 
+      inhalt.splice(0,0, <p>Keine Ergebnisse gefunden</p>);
+    };
     return inhalt;
 
   }
