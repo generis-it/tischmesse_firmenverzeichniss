@@ -88,18 +88,22 @@ function App() {
   const content = () => {
     let inhalt = [];
 
+    //ausserller als Elemente dem Array hinzufügen
     inhalt.push(aussteller.map((e) => (
       <Aussteller key={e.id} aussteller={e.fields}/>
     )))
 
+    //Inserate untermischen
     for (let i =0; i<ins.length; i++){
       const verschiebung = 3;
       const insertpos = i *3+verschiebung;
         inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} link={ins[i].fields.url}/>)
     }
+    //Wenn keine aussteller gefunden
     if (aussteller.length == 0) { 
-      inhalt.splice(0,0, <p>Keine Ergebnisse gefunden</p>);
+      inhalt.splice(0,0, <p className='no-results'>Keine Ergebnisse gefunden</p>);
     };
+
     return inhalt;
 
   }
