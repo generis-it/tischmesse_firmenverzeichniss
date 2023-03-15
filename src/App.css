@@ -50,6 +50,10 @@ justify-content: center;
     gap: 20px;
     
 }
+
+.toggle {
+    cursor: pointer;
+}
 @media (max-width: 800px) {
     #sidebar {
         display: none;
@@ -71,6 +75,7 @@ body {
 }
 .no-results {
     text-align: center;
+
 }
 .loading {
     width: 100%;

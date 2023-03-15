@@ -79,11 +79,11 @@ const Aussteller = ({ id, aussteller }) => {
                     </div>}
 
                     <div className="icon_text">
-                        <img src={map} alt="plus" />
+                        <img src={map} alt="ort" />
                         <p>{aussteller.ort}</p>
                     </div>
                     <div className="icon_text">
-                        <img src={telefon} alt="plus" />
+                        <img src={telefon} alt="tel" />
                         <p>{aussteller.telefon}</p>
                     </div>
                     <div id={id} className="card_detail_1">
@@ -113,8 +113,8 @@ const Aussteller = ({ id, aussteller }) => {
                         <a href={aussteller.url} target="_blank"><p>{aussteller.website}</p></a>
                     </div>
                     
-                    {!open && <img src={plus} alt="plus" onClick={() => setOpen(!open)} />}
-                        {open && <img src={minus} alt="plus" onClick={() => setOpen(!open)} />}
+                    {!open && <img src={plus} alt="plus" className='toggle' onClick={() => setOpen(!open)} />}
+                        {open && <img src={minus} alt="minus" className='toggle' onClick={() => setOpen(!open)} />}
                 </div>
             </div>
         </div>)

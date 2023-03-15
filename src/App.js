@@ -7,7 +7,6 @@ import Inserat from './Inserat';
 import Delete from './img/delete.svg';
 import Logo from './img/logo_sh.jpeg';
 import Loading from './img/bock_loading.gif';
-//import LoadingSVG from './img/bock_loading.svg';
 
 function App() {
   var Airtable = require('airtable');
@@ -22,7 +21,6 @@ function App() {
   const suchstring = 'AND(SEARCH("' + filterString.toLowerCase() + '", LOWER({Firmenname})), SEARCH("' + filterBranche.toLowerCase() + '", LOWER({Branche})))';
   
   useEffect(() => {
-
     base('Aussteller').select({ 
       filterByFormula: suchstring, 
       view: "Grid view" })
@@ -99,10 +97,9 @@ function App() {
       const insertpos = i *3+verschiebung;
         inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} link={ins[i].fields.url}/>)
     }
+    console.log("Inhalte: "+inhalt.length)
     //Wenn keine aussteller gefunden
-    if (aussteller.length == 0) { 
-      inhalt.splice(0,0, <p className='no-results'>Keine Ergebnisse gefunden</p>);
-    };
+    
 
     return inhalt;
 
