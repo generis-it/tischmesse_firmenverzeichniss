@@ -27,7 +27,7 @@ function App() {
       .eachPage((records, fetchNextPage) => {
         if  (filterString.length > 0 || filterBranche.length > 0) {
           setAussteller([]);
-          console.log("auf 0")
+          console.log("auf 0");
         }
         setAussteller(state => [...state, ...records]);
         fetchNextPage();
@@ -70,10 +70,12 @@ function App() {
 
 
   const setFilter = (filter) => {
+
     setAussteller([]);
     setfilterString(filter.target.value);
   }
   const setBranchenFilter = (filter) => {
+  
     setAussteller([]);
     setfilterBranche(filter.target.value);
   }
@@ -97,9 +99,6 @@ function App() {
       const insertpos = i *3+verschiebung;
         inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} link={ins[i].fields.url}/>)
     }
-    console.log("Inhalte: "+inhalt.length)
-    //Wenn keine aussteller gefunden
-    
 
     return inhalt;
 
