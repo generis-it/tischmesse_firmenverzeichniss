@@ -13,35 +13,23 @@ function App() {
   var base = new Airtable({ apiKey: 'keyigRrBXDdtbuUQ3' }).base('appShZ2e3RAuNGWGt');
   const [filterString, setfilterString] = useState("");
   const [filterBranche, setfilterBranche] = useState("");
+  const [initalAussteller, setInitialAussteller] = useState([]);
   const [aussteller, setAussteller] = useState([]);
   const [ins, setIns] = useState([]);
   const [branchen, setBranchen] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const suchstring = 'AND(SEARCH("' + filterString.toLowerCase() + '", LOWER({Firmenname})), SEARCH("' + filterBranche.toLowerCase() + '", LOWER({Branche})))';
-  
+
   useEffect(() => {
     base('Aussteller').select({ 
-      filterByFormula: suchstring, 
       view: "Grid view" })
       .eachPage((records, fetchNextPage) => {
-        if  (filterString.length > 0 || filterBranche.length > 0) {
-          setAussteller([]);
-          console.log("auf 0");
-        }
+        setInitialAussteller(state => [...state, ...records]);
         setAussteller(state => [...state, ...records]);
-        fetchNextPage();
-        
+        fetchNextPage();  
       });
       setLoading(false);
-      setTimeout(() => {
-      
-      }, "1000");
-
-  }, [filterString, filterBranche]);
-
-
-
+  }, []);
   //Branchenfilter
   useEffect(() => {
     base('Aussteller').select()
@@ -49,14 +37,12 @@ function App() {
         let bra = []
         records.forEach((rec) => {
           bra = bra.concat(rec.fields.branche.filter(item => bra.indexOf(item) < 0));
-        }
-        );
+        });
         const sorted = Array.from(bra).sort();
         setBranchen(sorted);
       });
 
   }, []);
-
 
   useEffect(() => {
     base('Inserate').select({ view: "Grid view" })
@@ -67,22 +53,23 @@ function App() {
       });
   }, []);
 
-
-
   const setFilter = (filter) => {
-
-    setAussteller([]);
     setfilterString(filter.target.value);
+    const newArray = initalAussteller.filter(
+      a => a.fields.Firmenname.toLowerCase().includes(filter.target.value.toLowerCase()))
+    setAussteller(newArray);
   }
   const setBranchenFilter = (filter) => {
-  
-    setAussteller([]);
     setfilterBranche(filter.target.value);
+    const newArray = initalAussteller.filter(
+      a => a.fields.branche.includes(filter.target.value))
+    setAussteller(newArray);
   }
   const clearFilter = () => {
-    setAussteller([]);
-    setfilterString("");
-    setfilterBranche("");
+    setfilterBranche("")
+    setfilterString("")
+    setAussteller(initalAussteller);
+
   }
 
   const content = () => {
@@ -113,7 +100,7 @@ function App() {
         <div className='filter'>
           <div className='filter-col' id="suche">
             <label>Suchen Sie eine Firma:</label>
-            <input type="text" value={filterString} placeholder="Ihr Suchtext..." onChange={setFilter} />
+            <input type="text" placeholder="Ihr Suchtext..." value={filterString} onChange={setFilter} />
 
           </div>
           <div className='filter-col' id="auswahl">
@@ -138,7 +125,13 @@ function App() {
 
       </header >
     <main>
+    
       <div id="aussteller-cards">
+      {loading && <div className='loading'>
+        <img src={Loading} alt="Loading Image" className="loading-image" />
+        <h2>Firmen werden geladen...</h2>
+        </div>}
+        
         {
           content()
         }
@@ -150,10 +143,6 @@ function App() {
         ))}
 
       </div>
-      {loading && <div className='loading'>
-        <img src={Loading} alt="Loading Image" className="loading-image" />
-        <h2>Firmen werden geladen...</h2>
-        </div>}
     </main>
     <Footer/>
     </div >
