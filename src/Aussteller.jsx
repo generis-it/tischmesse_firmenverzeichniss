@@ -14,6 +14,7 @@ const Aussteller = ({ id, aussteller }) => {
     const [open, setOpen] = useState(false);
     const [image, setImage] = useState(false);
     const [pers, setPers] = useState(false);
+    const [tableTwo, setTableTwo] = useState(false);
 
 
     useEffect(() => {
@@ -26,6 +27,8 @@ const Aussteller = ({ id, aussteller }) => {
         try {
             const person = aussteller.Person2;
             setPers(person.length >= 2);
+            const tableTwo = aussteller.Tischnummer2;
+            setTableTwo(true);
         } catch (error) {
 
         }
@@ -55,7 +58,7 @@ const Aussteller = ({ id, aussteller }) => {
                 <div className="card_top" >
                     <h3>{aussteller.Firmenname}</h3>
                     <div className='card_top_right'>
-                        <h4>Tisch <br></br>Nr. {aussteller.Tischnummer}</h4>
+                        <h4>Tisch <br></br>Nr. {aussteller.Tischnummer} {tableTwo && <span>{aussteller.Tischnummer2}</span>}</h4>
 
                     </div>
 
