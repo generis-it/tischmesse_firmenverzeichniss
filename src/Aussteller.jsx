@@ -27,11 +27,17 @@ const Aussteller = ({ id, aussteller }) => {
         try {
             const person = aussteller.Person2;
             setPers(person.length >= 2);
-            const tableTwo = aussteller.Tischnummer2;
-            setTableTwo(true);
+            
         } catch (error) {
 
         }
+        try {
+            const tableTwo = aussteller.Tischnummer2;
+            setTableTwo(tableTwo.length ==1);
+            console.log(aussteller.Tischnummer2)
+        } catch (error) {
+                
+            }
 
     }, []);
 
@@ -53,12 +59,10 @@ const Aussteller = ({ id, aussteller }) => {
     return (
         <div className="article shuffle" style={styles}>
             <div className=' card_content_top'>
-
-
                 <div className="card_top" >
                     <h3>{aussteller.Firmenname}</h3>
                     <div className='card_top_right'>
-                        <h4>Tisch <br></br>Nr. {aussteller.Tischnummer} {tableTwo && <span>{aussteller.Tischnummer2}</span>}</h4>
+                        <h4>Tisch <br></br>Nr. {aussteller.Tischnummer} {tableTwo && <span>- {aussteller.Tischnummer2}</span>}</h4>
 
                     </div>
 
@@ -89,7 +93,7 @@ const Aussteller = ({ id, aussteller }) => {
                         <img src={telefon} alt="tel" />
                         <p>{aussteller.telefon}</p>
                     </div>
-                    <div id={id} className="card_detail_1">
+                    <div className="card_detail_1">
                          {beschreibung()}
                         
 

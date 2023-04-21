@@ -13,6 +13,7 @@ function App() {
   var base = new Airtable({ apiKey: 'keyigRrBXDdtbuUQ3' }).base('appShZ2e3RAuNGWGt');
   const [filterString, setfilterString] = useState("");
   const [filterBranche, setfilterBranche] = useState("");
+  const [sortMode, setSortMode] = useState("NameAuf");
   const [initalAussteller, setInitialAussteller] = useState([]);
   const [aussteller, setAussteller] = useState([]);
   const [ins, setIns] = useState([]);
@@ -30,6 +31,7 @@ function App() {
       });
       setLoading(false);
   }, []);
+  
   //Branchenfilter
   useEffect(() => {
     base('Aussteller').select()
@@ -63,14 +65,59 @@ function App() {
     setfilterBranche(filter.target.value);
     const newArray = initalAussteller.filter(
       a => a.fields.branche.includes(filter.target.value))
-    setAussteller(newArray);
+    setAussteller([...newArray]);
   }
   const clearFilter = () => {
     setfilterBranche("")
     setfilterString("")
-    setAussteller(initalAussteller);
-
+    setSortMode("NameAuf");
   }
+  const setSortingMode = (sortmode) => {
+    setSortMode(sortmode.target.value);
+    setfilterBranche("")
+    setfilterString("")
+    console.log("sortMode changed to " + sortmode.target.value);
+  }
+
+  useEffect(() => {
+    console.log("Sortmode: " + sortMode);
+    let newArray = [];
+    switch (sortMode) {
+      case "NameAuf":
+        console.log("NameAuf");
+        newArray = [...initalAussteller];
+        break;
+      case "NameAb":
+        newArray = [...initalAussteller];
+        newArray.reverse();
+        break;
+      case "NrAuf":
+        console.log("NrAuf");
+        newArray =  [...initalAussteller];
+        newArray.sort(function(a, b) {
+          console.log(a.fields.Tischnummer); 
+          return a.fields.Tischnummer - b.fields.Tischnummer
+        });
+        console.log("initial:");
+        console.log(initalAussteller);
+        break;
+      case "NrAb":
+        newArray =  [...initalAussteller];
+        newArray.sort(function(a, b) {
+          console.log(a.fields.Tischnummer); 
+          return b.fields.Tischnummer - a.fields.Tischnummer
+        });
+        console.log("initial:");
+        console.log(initalAussteller);
+        break;
+      default:
+        newArray = aussteller;
+    }
+    console.log("sort finished");
+    console.log(newArray);
+    setAussteller([...newArray]);
+  }, [sortMode]);
+
 
   const content = () => {
     let inhalt = [];
@@ -84,7 +131,7 @@ function App() {
     for (let i =0; i<ins.length; i++){
       const verschiebung = 3;
       const insertpos = i *3+verschiebung;
-        inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} link={ins[i].fields.url}/>)
+        inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} link={ins[i].fields.url} key={ins[i].id}/>)
     }
 
     return inhalt;
@@ -104,20 +151,30 @@ function App() {
 
           </div>
           <div className='filter-col' id="auswahl">
-            <label for="branchen">Branchenfilter</label>
+            <label htmlFor="branchen">Branchenfilter</label>
             <select name="branchen" id="brachen" value={filterBranche} onChange={setBranchenFilter}>
             <option value="">---</option>
             {
               branchen.map((e) => (
-                <option value={e}>{e}</option>
+                <option value={e} key={e}>{e} </option>
               ))
             }
+            </select>
+          </div>
+          <div className='filter-col' id="auswahl">
+            <label htmlFor="sortieren">Sortieren</label>
+            <select name="sortieren" id="sortieren" value={sortMode} onChange={setSortingMode}>
+            <option value="NameAuf">A - Z</option>
+            <option value="NameAb">Z - A</option>
+            <option value="NrAuf">Tischnummer aufsteigend</option>
+            <option value="NrAb">Tischnummer absteigend</option>
+            
             </select>
           </div>
 
           <div className='filter-col' id="clean">
 
-          <label for="delete-button"></label>
+          <label htmlFor="delete-button"></label>
 
           <input type="image" id="delete-button" name="delete-button" src={Delete} onClick={clearFilter} />
           </div>
@@ -139,7 +196,7 @@ function App() {
       </div>
       <div id="sidebar">
         {ins.map((e, index) => (
-          <Inserat screen="desktop" key={e.id} bild={e.fields.Inserat[0].url} link={e.fields.url} />
+          <Inserat screen="desktop"  bild={e.fields.Inserat[0].url} link={e.fields.url} key={e.id}/>
         ))}
 
       </div>
