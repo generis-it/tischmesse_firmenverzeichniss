@@ -20,7 +20,6 @@ function App() {
   const [branchen, setBranchen] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     base('Aussteller').select({ 
       view: "Grid view" })
@@ -41,7 +40,7 @@ function App() {
           bra = bra.concat(rec.fields.branche.filter(item => bra.indexOf(item) < 0));
         });
         const sorted = Array.from(bra).sort();
-        setBranchen(sorted);
+        setBranchen(sorted );
       });
 
   }, []);
@@ -136,9 +135,12 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img src={Logo} alt="Logo" id="sh-logo" />
+        <a class="time-link" href="https://tischmesse.sh/" target="_blank">
+          <img src={Logo} alt="Logo" id="sh-logo" />
+          </a>
         <h1>Schaffhauser Tischmesse 2023</h1>
        
+
         <div className='filter'>
           <div className='filter-col' id="suche">
             <label>Suchen Sie eine Firma:</label>
