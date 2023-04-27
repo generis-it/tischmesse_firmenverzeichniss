@@ -70,6 +70,7 @@ function App() {
   const clearFilter = () => {
     setfilterBranche("")
     setfilterString("")
+    setAussteller([...initalAussteller]);
     setSortMode("NameAuf");
   }
   const setSortingMode = (sortmode) => {
@@ -80,11 +81,10 @@ function App() {
   }
 
   useEffect(() => {
-    console.log("Sortmode: " + sortMode);
+
     let newArray = [];
     switch (sortMode) {
       case "NameAuf":
-        console.log("NameAuf");
         newArray = [...initalAussteller];
         break;
       case "NameAb":
@@ -92,29 +92,24 @@ function App() {
         newArray.reverse();
         break;
       case "NrAuf":
-        console.log("NrAuf");
+  
         newArray =  [...initalAussteller];
         newArray.sort(function(a, b) {
           console.log(a.fields.Tischnummer); 
           return a.fields.Tischnummer - b.fields.Tischnummer
         });
-        console.log("initial:");
-        console.log(initalAussteller);
+
         break;
       case "NrAb":
         newArray =  [...initalAussteller];
         newArray.sort(function(a, b) {
-          console.log(a.fields.Tischnummer); 
           return b.fields.Tischnummer - a.fields.Tischnummer
         });
-        console.log("initial:");
-        console.log(initalAussteller);
+
         break;
       default:
         newArray = aussteller;
     }
-    console.log("sort finished");
-    console.log(newArray);
     setAussteller([...newArray]);
   }, [sortMode]);
 
