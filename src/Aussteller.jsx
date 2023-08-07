@@ -33,7 +33,6 @@ const Aussteller = ({ id, aussteller }) => {
         }
         try {
             const tableTwo = aussteller.Tischnummer2;
-
             setTableTwo(tableTwo>1);
         } catch (error) {
                 
