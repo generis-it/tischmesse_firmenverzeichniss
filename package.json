@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "golive": "sh myscript.sh",
+    "golive": "sh deployment.sh",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
