@@ -138,7 +138,7 @@ function App() {
         <a class="time-link" href="https://tischmesse.sh/" target="_blank">
           <img src={Logo} alt="Logo" id="sh-logo" />
           </a>
-        <h1>Schaffhauser Tischmesse 2023</h1>
+        <h1>Schaffhauser Tischmesse</h1>
        
 
         <div className='filter'>
