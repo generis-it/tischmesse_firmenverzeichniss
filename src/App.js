@@ -18,7 +18,7 @@ function App() {
   const [aussteller, setAussteller] = useState([]);
   const [ins, setIns] = useState([]);
   const [branchen, setBranchen] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [laden, setLaden] = useState(true);
 
   useEffect(() => {
     base('Aussteller').select({ 
@@ -28,7 +28,6 @@ function App() {
         setAussteller(state => [...state, ...records]);
         fetchNextPage();  
       });
-      setLoading(false);
   }, []);
   
   //Branchenfilter
@@ -114,7 +113,7 @@ function App() {
   const content = () => {
     let inhalt = [];
 
-    //ausserller als Elemente dem Array hinzufügen
+    //Firemn als Elemente dem Array hinzufügen
     inhalt.push(aussteller.map((e) => (
       <Aussteller key={e.id} aussteller={e.fields}/>
     )))
@@ -125,7 +124,6 @@ function App() {
       const insertpos = i *3+verschiebung;
         inhalt[0].splice(insertpos,0,<Inserat screen="mobile shuffle" bild={ins[i].fields.Inserat[0].url} link={ins[i].fields.url} key={ins[i].id}/>)
     }
-
     return inhalt;
 
   }
@@ -179,13 +177,21 @@ function App() {
     <main>
     
       <div id="aussteller-cards">
-      {loading && <div className='loading'>
-        <img src={Loading} alt="Loading Image" className="loading-image" />
+        
+      {false && <div className='loading'>
+      <img src={Loading} alt="Loading Image" className="loading-image" />
         <h2>Firmen werden geladen...</h2>
         </div>}
         
         {
           content()
+        }
+        {aussteller<=1 && 
+        <div className='loading'>
+        <img src={Loading} alt="Loading Image" className="loading-image" />
+          <h2>Firmen werden geladen...</h2>
+          </div> 
+
         }
         
       </div>
