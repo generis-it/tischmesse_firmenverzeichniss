@@ -10,7 +10,7 @@ import Loading from './img/bock_loading.gif';
 
 function App() {
   var Airtable = require('airtable');
-  var base = new Airtable({ apiKey: 'pat9nxhhrnFoYmyPq.5e121edf8b3be21e41ad464522b0f7409fde23bcfe7c99a83ae2aec75fa1d678' }).base('appShZ2e3RAuNGWGt');
+  var base = new Airtable({ apiKey: 'patj5xw1kT4klyfqu.faf4f0d20f32f32a8c24c2c33d370692776a5158c2629ead2c872e881935bd51' }).base('appylx6vfWbzWtyWi');
   const [filterString, setfilterString] = useState("");
   const [filterBranche, setfilterBranche] = useState("");
   const [sortMode, setSortMode] = useState("NameAuf");
@@ -18,7 +18,6 @@ function App() {
   const [aussteller, setAussteller] = useState([]);
   const [ins, setIns] = useState([]);
   const [branchen, setBranchen] = useState([]);
-  const [laden, setLaden] = useState(true);
 
   useEffect(() => {
     base('Aussteller').select({ 
