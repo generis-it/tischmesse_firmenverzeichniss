@@ -14,8 +14,8 @@ Welcome to the Company Directory project for the Schaffhauser Table Fair! This p
 
 To run the project locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/tischmesse_react.git`
-2. Navigate to the project directory: `cd tischmesse_react`
+1. Clone the repository: `git clone https://github.com/generis-it/tischmesse_firmenverzeichniss.git`
+2. Navigate to the project directory: `cd tischmesse_firmenverzeichniss`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
 5. Open your web browser and go to `http://localhost:3000` to view the project.
@@ -26,8 +26,8 @@ To run the project locally, follow these steps:
 The live version of the Company Directory project can be accessed at [https://firmen.tischmesse.sh/](https://firmen.tischmesse.sh/). 
 
 ### Step by Spet Guide for Deployment:
-1. Clone the repository: `git clone https://github.com/your-username/tischmesse_react.git`
-2. Navigate to the project directory: `cd tischmesse_react`
+1. Clone the repository: `git clone https://github.com/generis-it/tischmesse_firmenverzeichniss.git`
+2. Navigate to the project directory: `cd tischmesse_firmenverzeichniss`
 3. Install dependencies: `npm install`
 4. Checkout production branch: `git checkout production`
 5. Pull: `git pull`
@@ -36,6 +36,6 @@ The live version of the Company Directory project can be accessed at [https://fi
 
 ## Contact
 
-If you have any questions or suggestions regarding the project, feel free to contact us at `elibox@gmx.ch`.
+If you have any questions or suggestions regarding the project, feel free to contact us at `generis-it@generis.ch`.
 
 Thank you for your interest in the Company Directory for Schaffhauser Table Fair! We hope this platform enhances your experience at the event.
