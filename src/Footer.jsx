@@ -4,7 +4,7 @@ import SHLogo from './img/logo_sh.jpeg'
 import SHStadt from './img/Stadt_Schaffhausen4-f18f22bd.png'
 import Gewerbeverband from './img/Logo_KGV_kurz-35de938a.jpeg'
 import IVS from './img/IVS-Logo-mit-Text-d8ed2d70.jpeg'
-import GF from './img/gf_5cm-da6e8570.png'
+import GF from './img/lichtundton_logo_final_cmyk Kopie.png'
 import SHN from './img/sn_schriftzug_schwarz-3eb9ff27.png'
 import RadioMunot from './img/Radio-Munot-Logo-0fb055c8.png'
 
